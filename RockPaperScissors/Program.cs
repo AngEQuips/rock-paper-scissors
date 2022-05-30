@@ -15,33 +15,21 @@ namespace RockPaperScissors
 
             Console.WriteLine("Let's Play Rock Paper Scissors!");
             Console.WriteLine();
-            Console.WriteLine("Enter Rock, Paper, or Scissors: ");
 
             var index = random.Next(names.Count);
             var pcAnswer = names[index];
-
-
             var answer = "";
 
             do
             {
-                Console.WriteLine("Invalid answer.");
-
                 Console.WriteLine("Enter Rock, Paper, or Scissors: ");
                 answer = Console.ReadLine();
 
             }
-            while (string.IsNullOrEmpty(answer) && !names.Select(x => x.ToLower()).Contains(answer.ToLower()));
-
-
-
-
-
-
-
+            while (string.IsNullOrEmpty(answer) || !names.Select(x => x.ToLower()).Contains(answer.ToLower()));
+           
             Console.WriteLine("PC answer: " + pcAnswer);
-
-
+            Console.WriteLine("Your answer: " + answer);
 
             if (answer == names[0].ToLower() && pcAnswer == names[2])
 
@@ -62,16 +50,6 @@ namespace RockPaperScissors
                 Console.WriteLine("No winner.");
             }
             else { Console.WriteLine("You lose."); }
-
-
-
-
-
-
-
-
-
-
         }
     }
 }
